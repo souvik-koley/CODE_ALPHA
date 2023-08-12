@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Step-Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>
+    <section class="form-wrap">
+      <div class="form-container">
+        <!-- Form -->
+        <form id="multi-step-form" >
+          <div id="form-container-box">
+            <h1 class="form-title">Multi Step SURVEY FORM</h1>
+            <ul class="progress-bar">
+                <li id="step1" class="active">User Info</li>
+                <li id="step2">Address</li>
+                <li id="step3">Comments</li>
+            </ul>
+
+            <!-- ----------Step-1-------------- -->
+            <div class="step-group" id="step-group-1">
+                <div class="from-box">
+                    <div class="form-group">
+                        <input type="text" name="first-name" id="first-name" class="form-field" placeholder="First Name"  >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="last-name" id="last-name"  class="form-field" placeholder="Last Name"  >
+                    </div>
+                </div>
+
+                <div class="from-box">
+                    <div class="form-group">
+                        <input type="email" name="email" id="email" class="form-field" placeholder="Email"  >
+                    </div>
+                </div>
+
+                <div class="from-box">
+                    <div class="form-group">
+                        <input type="text" name="number" id="number" class="form-field" placeholder="Mobile No."  >
+                    </div>
+                </div>
+
+                <div class="from-box">
+                    <div class="btn-step">
+                        <button id="step-next-1" >Next &#65515;</button>
+                    </div>
+                </div>   
+            </div>
+            <!-- ---------------Step-2 ---------------- -->
+            <div class="step-group" id="step-group-2">
+                <div class="from-box">
+                    <div class="form-group">
+                        <input type="text" name="address-1" id="address-1" class="form-field" placeholder="Address 1"  >
+                    </div>
+                </div>
+
+                <div class="from-box">
+                    <div class="form-group">
+                        <input type="text" name="address-2" id="address-2" class="form-field" placeholder="Address 2">
+                    </div>
+                </div>
+
+                <div class="from-box">
+                    <div class="form-group">
+                        <input type="text" name="city-name" id="city-name" class="form-field" placeholder="City Name"  >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="zip-code" id="zip-code" class="form-field" placeholder="Zip Code"  >
+                    </div>
+                </div>
+
+                <div class="from-box">
+                    <div class="btn-step">
+                        <button  id="step-prev-1" >&#65513; Prev</button>
+                        <button  id="step-next-2" >Next &#65515;</button>
+                    </div>
+                </div>  
+            </div>
+            <!-- -----------Step-3----------- -->
+            <div class="step-group" id="step-group-3">
+                <div class="from-box">
+                    <div class="form-group">
+                        <input type="text" name="subject" id="subject" class="form-field" placeholder="Subject"  >
+                    </div>
+                </div>
+                <div class="from-box">
+                    <div class="form-group">
+                        <textarea class="form-field" name="message" id="message" placeholder="Message" col="30" row="10"  ></textarea>
+                    </div>
+                </div>
+                <!-- <div class="from-box">
+                    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                </div> -->
+                <div class="from-box">
+                    <div class="btn-step">
+                        <button  id="step-prev-2" >&#65513; Prev</button>
+                        <button  type="submit" id="step-next-3" onclick="sendEmail()">Submit &#65515;</button>
+                    </div>
+                </div>  
+            </div>
+
+          </div>
+          <!-- ---------------Sucess Box------------- -->
+          <div id="sucess-box">
+            <span class="done">&#10004;</span>
+            <p class="sucess-text">
+                Your Message Was Sent Successfully.  Thanks
+            </p>
+            <button id="reset-btn" type="reset">Refress</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="script.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function sendEmail() {
+            var firstName=document.getElementById("first-name").value;
+            var lastName=document.getElementById("last-name").value;
+            var emailId=document.getElementById("email").value;
+            var phoneNo=document.getElementById("number").value;
+
+            var address1=document.getElementById("address-1").value;
+            var address2=document.getElementById("address-2").value;
+            var cityName=document.getElementById("city-name").value;
+            var zipCode=document.getElementById("zip-code").value;
+
+            var subject=document.getElementById("subject").value;
+            var message=document.getElementById("message").value;
+
+            var body= `
+            Name : ${firstName} ${lastName}<br>
+            Email-Id : ${emailId}<br>
+            Phone-No : ${phoneNo}<br>
+            Address - 1 : ${address1}<br>
+            Address - 2 : ${address2}<br>
+            City Name : ${cityName}<br>
+            Zip Code : ${zipCode}<br>
+            Message : ${message}
+             `
+            // console.log(body);
+
+            Email.send({
+            SecureToken : "7c104835-d3dc-4bf9-8cd3-8381dfedd56d",
+            To : 'souvikkoley9674@gmail.com',
+            From : `${emailId}`,
+            Subject : `${subject}`,
+            Body : body
+            }).then(message=>alert(message));
+        }
+    </script>
+  </body>
+</html>
