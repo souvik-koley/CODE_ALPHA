@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="form-wrap">
+      <div class="form-container">
+        <form action="" id="form">
+          <div class="form-contaier-box">
+            <h1 class="form-title">Contact Survey Form</h1>
+            <div class="from-box">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-field"
+                  id="first-name"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-field"
+                  id="last-name"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+            <div class="from-box">
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-field"
+                  id="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="from-box">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-field"
+                  id="number"
+                  placeholder="Phone Number"
+                />
+              </div>
+            </div>
+
+            <div class="from-box">
+              <div class="form-group captcha">
+                <input type="text" class="form-field" value="" disabled />
+                <i class="bx bx-refresh"></i>
+              </div>
+              <div class="form-group captch-input">
+                <input
+                  type="text"
+                  class="form-field"
+                  placeholder="Captcha Enter"
+                />
+              </div>
+            </div>
+
+            <div class="message">Entered captcha is correct</div>
+
+            <div class="from-box">
+              <div class="btn-step disabled">
+                <button type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="script.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+        var firstName = document.getElementById("first-name").value;
+        var lastName = document.getElementById("last-name").value;
+        var emailId = document.getElementById("email").value;
+        var phoneNo = document.getElementById("number").value;
+
+        var body = `
+        Name : ${firstName} ${lastName}<br>
+        Email-Id : ${emailId}<br>
+        Phone-No : ${phoneNo}<br>
+        `;
+        // console.log(body);
+
+        Email.send({
+          SecureToken: "7c104835-d3dc-4bf9-8cd3-8381dfedd56d",
+          To: "souvikkoley9674@gmail.com",
+          From: `${emailId}`,
+          Subject: "New Form Enquiary",
+          Body: body,
+        }).then((message) => alert(message));
+      }
+    </script>
+  </body>
+</html>
