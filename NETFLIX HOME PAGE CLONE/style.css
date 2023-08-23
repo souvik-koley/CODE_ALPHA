@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-color: black;
+}
+.top-header,
+.body-section,
+.faq-container {
+  border-bottom: 5px solid #535251;
+}
+.top-header {
+  height: 90vh;
+  background-image: url(images/background-image.jpg);
+  background-position: center;
+  background-size: cover;
+  /* object-fit: contain; */
+}
+
+.container {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+nav img {
+  width: 150px;
+}
+.navbar {
+  margin: 0 100px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.right-half {
+  display: flex;
+  gap: 20px;
+}
+.dropdown-container {
+  position: relative; /* required */
+}
+.btn {
+  background-color: #e50815;
+  color: #fff;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.language-picker {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #535251;
+  border-radius: 5px;
+}
+.language,
+.drop-down {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.language {
+  left: 15px;
+}
+.drop-down {
+  right: -15px;
+}
+/* ---------------Content Box-------------- */
+.content {
+  margin: 30vh auto;
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content h1,
+p {
+  margin-top: 15px;
+}
+.content h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+.content p {
+  font-size: 20px;
+  font-weight: 400;
+}
+.email-container {
+  /* border: 2px solid red; */
+  display: flex;
+  gap: 20px;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.email-container > input {
+  flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid #535251;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+.get-started {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  padding: 10px 20px;
+}
+.get-started span {
+  font-size: 30px;
+}
+
+/* ---------------Body Section---------- */
+.body-section {
+  display: flex;
+  align-items: center;
+  padding: 40px 100px;
+}
+.left-item h1,
+.right-item h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+.left-item p,
+.right-item p {
+  font-size: 25px;
+}
+.right-item {
+  position: relative;
+}
+.right-item video {
+  position: absolute;
+  left: 80px;
+  top: 20%;
+  z-index: -1;
+}
+.layout {
+  border: 2px solid #535251;
+  border-radius: 5px;
+  position: absolute;
+  background-color: black;
+  width: 50%;
+  bottom: 0;
+  left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.layout img {
+  width: 50px;
+}
+.layout p {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.layout p span {
+  color: blue;
+}
+.static-left-item {
+  position: relative;
+}
+/* -----------faq-container------------ */
+.faq-container {
+  padding: 40px 100px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 10px;
+}
+.faq-container h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+.faq {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #2d2d2d;
+  transition-duration: 0.5s;
+}
+.faq p {
+  font-size: 20px !important;
+  margin-top: 0;
+}
+.faq:hover {
+  background-color: #736c6c;
+}
+.para {
+  font-size: 24px;
+  margin: 30px 0 -21px;
+}
+/* -----------Footer----------- */
+.footer-container {
+  padding: 50px 100px;
+}
+.footer-container,
+.footer-container a {
+  color: #afafaf;
+}
+.link-container {
+  display: flex;
+  gap: 250px;
+  justify-content: flex-start;
+  padding: 40px 0;
+}
+.link-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
